@@ -70,7 +70,7 @@ const Detail = (props) => {
     }
     try {
       setIsLoading(true);
-      const url = 'http://localhost:8080/followers/get';
+      const url = 'https://6499a33d79fbe9bcf83faadd.mockapi.io/user_info';
       const response = await axios.post(url, { followerId: id, userId: post_created_by });
       setPost(prevPost => ({ ...prevPost, hasFollowed: response && response.data && response.data.message ? false : true }));
       setIsLoading(false);

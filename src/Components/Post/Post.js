@@ -7,7 +7,7 @@ const Post = (props) => {
   
     return (
       <div className="post" onClick={selectPost}>
-        <img src={`https://6499a33d79fbe9bcf83faadd.mockapi.io/post${post.content}`} alt={`${post.created_by} - ${post.created_date}`}/>
+        <img src={`${post.image}`} alt={`${post.created_by} - ${post.created_date}`}/>
       </div>
     );
   };

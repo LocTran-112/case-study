@@ -28,11 +28,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element ={<Home/>} />
-          {/* <Route exact path="/post/:id" component={Share} />
-          <Route exact path="/profile/:id" component={Profile} />
-          <Route exact path="/notifications" component={Notifications} />
-          <Route exact path="/chat" component={Chat} /> */}
-          <Route exact path="/login" element ={<Login/>}></Route>
+          <Route exact path="/login" element ={<Login/>}/>
         </Routes>
       </Router>
       {isLoading && <Loading />}
