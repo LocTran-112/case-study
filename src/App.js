@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Components/Login/Login';
-// import PRoute from './Components/Reuse/Route';
+import Home from './Components/Home/Home';
 import Context from './Context';
 import Loading from './Components/Reuse/Loading';
 
@@ -27,12 +27,12 @@ function App() {
     <Context.Provider value={{ isLoading, setIsLoading, user, setUser, hasNewPost, setHasNewPost, selectedPost, setSelectedPost }}>
       <Router>
         <Routes>
-          {/* <Route exact path="/" component={Home} />
-          <Route exact path="/post/:id" component={Share} />
+          <Route exact path="/" element ={<Home/>} />
+          {/* <Route exact path="/post/:id" component={Share} />
           <Route exact path="/profile/:id" component={Profile} />
           <Route exact path="/notifications" component={Notifications} />
           <Route exact path="/chat" component={Chat} /> */}
-          <Route exact path="/" element ={<Login/>}></Route>
+          <Route exact path="/login" element ={<Login/>}></Route>
         </Routes>
       </Router>
       {isLoading && <Loading />}

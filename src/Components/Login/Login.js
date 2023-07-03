@@ -1,4 +1,4 @@
-import { useEffect, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 import validator from "validator";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -15,12 +15,7 @@ const Login = (props) => {
 
     const history = useNavigate();
 
-    useEffect(() => {
-        const authenticatedUser = JSON.parse(localStorage.getItem('auth'));
-        if (authenticatedUser) {
-            history.push('/');
-        }
-    }, [history]);
+   
 
     const getInputs = () => {
         const email = emailRef.current.value;
@@ -34,7 +29,10 @@ const Login = (props) => {
 
     const signin = async (email, password) => {
         const url = 'https://6499a33d79fbe9bcf83faadd.mockapi.io/user_info';
-        return await axios.get(url, { email, password });
+        return await axios.get(url, { email, password })
+        .then((res) => {
+            console.log(res)
+        })
     }
 
     const login = async () => {
@@ -44,6 +42,8 @@ const Login = (props) => {
             const authenticatedUser = await signin(email, password);
             if (authenticatedUser) {
                 setUser(authenticatedUser.username)
+                setIsLoading(false)
+                history.push('/');
             }
 
             else {

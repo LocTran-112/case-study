@@ -78,8 +78,6 @@ function SignUp(props) {
             const response = await createUser({ id, email, password, fullname })
             if (response && response.data.message) {
                 alert(response.data.message)
-            } else {
-                return response
             }
         }
         toggleModal(false);
