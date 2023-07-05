@@ -82,7 +82,7 @@ function SignUp(props) {
         }
         toggleModal(false);
         setIsLoading(false);
-    }
+    };
 
     const removeUserAvatar = () => {
         filepickerRef.current.value = null;
@@ -110,7 +110,6 @@ function SignUp(props) {
                         <img
                             alt="close"
                             onClick={() => toggleModal(false)}
-                            src="https://static.xx.fbcdn.net/rsrc.php/v3/y2/r/__geKiQnSG-.png"
                         />
                     </div>
                 </div>

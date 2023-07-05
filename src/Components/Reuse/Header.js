@@ -24,7 +24,7 @@ const Header = (props) => {
     // };
 
     const goHome = () => {
-        history.push('/');
+        history('/');
     };
 
     // const goProfile = () => {

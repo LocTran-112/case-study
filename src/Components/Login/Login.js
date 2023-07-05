@@ -27,23 +27,24 @@ const Login = (props) => {
         return validator.isEmail(email) && password;
     };
 
-    const signin = async (email, password) => {
-        const url = 'https://6499a33d79fbe9bcf83faadd.mockapi.io/user_info';
-        return await axios.get(url, { email, password })
-        .then((res) => {
-            console.log(res)
-        })
-    }
+    // const signin = async (email, password) => {
+    //     const url = 'https://6499a33d79fbe9bcf83faadd.mockapi.io/user_info';
+    //     return await axios.get(url, { email, password })
+    //     .then((res) => {
+    //         console.log(res)
+    //     })
+    // }
 
-    const login = async () => {
+    function login()  {
         const { email, password } = getInputs();
+        const url = 'https://6499a33d79fbe9bcf83faadd.mockapi.io/user_info';
         if (isUserCredentialsValid(email, password)) {
             setIsLoading(true);
-            const authenticatedUser = await signin(email, password);
+            const authenticatedUser = axios.get( url, { email, password }) ;
             if (authenticatedUser) {
                 setUser(authenticatedUser.username)
                 setIsLoading(false)
-                history.push('/');
+                history('/');
             }
 
             else {
@@ -56,7 +57,7 @@ const Login = (props) => {
     return (
         <div className="login__container">
             <div className="login__welcome">       
-                <p>Instagram Clone</p>
+                <p>Welcome to Instagram Pha Kè</p>
             </div>
             <div className="login__form-container">
                 <div className="login__form">
